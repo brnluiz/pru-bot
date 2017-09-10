@@ -1,0 +1,27 @@
+dist: trusty
+sudo: required
+language: node_js
+
+services:
+  - docker
+
+before_script:
+  - docker-compose -v
+  - docker -v
+  - make build
+  - make up
+
+script:
+  - make test
+
+after_success:
+  # Publish on Heroku
+  - echo 'Deploying on Heroku'
+  - docker login -u _ -p $HEROKU_TOKEN registry.heroku.com
+  - docker tag $HEROKU_TAG $HEROKU_REGISTRY
+  - docker push $HEROKU_REGISTRY
+
+  # Publish on Docker HUB
+  - echo 'Pushing to Docker HUB'
+  - docker login -u $DOCKER_USER -p $DOCKER_PSWD
+  - docker-compose push

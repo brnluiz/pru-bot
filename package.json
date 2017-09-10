@@ -1,0 +1,52 @@
+{
+  "name": "pru-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js | bunyan",
+    "lint": "standard",
+    "docs": "apidoc -i ./ -o ./docs",
+    "test": "standard && npm run test:spec",
+    "test:spec": "(npm start > ./spec.log) & ava spec/**/*.spec.js",
+    "test:spec:watch": "npm run test:spec -- --watch",
+    "test:unit": "NODE_ENV=test ava src/**/*.test.js",
+    "test:unit:watch": "npm run test:unit -- --watch"
+  },
+  "ava": {
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "serial": true
+  },
+  "standard": {
+    "ignore": [
+      "docs/**",
+      "public/**",
+      "yarn/**"
+    ]
+  },
+  "author": "Bruno Luiz da Silva",
+  "license": "ISC",
+  "dependencies": {
+    "apidoc": "^0.17.6",
+    "ava": "^0.21.0",
+    "axios": "^0.16.2",
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "bunyan": "^1.8.12",
+    "change-case": "^3.0.1",
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "joi": "^10.6.0",
+    "joigoose": "^2.0.0",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.6",
+    "nodemon": "^1.11.0",
+    "proxyquire": "^1.8.0",
+    "randomstring": "^1.1.5",
+    "sinon": "^3.2.0",
+    "standard": "^10.0.3",
+    "supertest": "^3.0.0"
+  }
+}

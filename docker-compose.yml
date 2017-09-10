@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+  pru-bot:
+    image: brunoluiz/pru-bot
+    env_file: .env.development
+    build:
+      args:
+        - NODE_ENV=development
+      context: .
+    volumes:
+      - .:/opt/app
+      - dummy:/opt/app/node_modules
+    ports:
+      - 8080:80
+      - 9229:9229
+    links:
+      - mongodb:mongodb.host
+      - pru-menus:pru-menus.host
+    command: ../node_modules/.bin/nodemon -L ./app.js --inspect=0.0.0.0:9229
+
+  pru-menus:
+    image: brunoluiz/pru-menus
+    environment:
+      - MONGODB_URI=mongodb://mongodb.host/pru-menu
+      - AUTH_USER=test
+      - AUTH_PASSWORD=test
+    ports:
+      - 80:9000
+    links:
+      - mongodb:mongodb.host
+
+  mongodb:
+    image: mongo:3.4
+    # Port not exposed due to CircleCI
+    # ports:
+      # - '27017:27016'
+
+volumes:
+  dummy:

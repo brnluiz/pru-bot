@@ -9,6 +9,7 @@
   "info": "Sobre e Infos",
   "subscribe": "Alertas de Cardápio",
 
+  "choices:yes-no": "Sim|Não",
   "yes": "Sim",
   "no": "Não"
 }

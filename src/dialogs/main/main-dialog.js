@@ -2,8 +2,8 @@ const builder = require('botbuilder')
 
 const url = process.env.URL || `http://localhost:${process.env.PORT}`
 
-module.exports = (name, bot) =>
-  bot.dialog(name, (session) => {
+module.exports = [
+  (session, results, next) => {
     const image = builder.CardImage.create(session,
       `${url}/public/assets/images/hero_pigeon.jpg`)
 
@@ -22,5 +22,6 @@ module.exports = (name, bot) =>
     const msg = new builder.Message(session)
       .addAttachment(card)
 
-    session.endDialog(msg)
-  })
+    return session.endDialog(msg)
+  }
+]

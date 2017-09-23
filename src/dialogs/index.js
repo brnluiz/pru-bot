@@ -22,7 +22,7 @@ module.exports = () => {
 
   const bot = new builder.UniversalBot(connector, {
     localizerSettings: {
-      defaultLocale: 'pt-br'
+      defaultLocale: 'pt'
     }
   })
 

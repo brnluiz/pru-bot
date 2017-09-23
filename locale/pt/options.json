@@ -1,15 +1,13 @@
 {
   "not-valid": "Pruuu! Opção inválida! Digite **AJUDA** para ver o menu novamente",
 
-  "today-menu": "Cardápio de hoje",
-  "tomorrow-menu": "Cardápio de amanhã",
-  "week-menu": "Cardápio da semana",
+  "today-menu": "Cardápio de Hoje",
+  "tomorrow-menu": "Cardápio de Amanhã",
+  "week-menu": "Cardápio da Semana",
 
   "menu": "Ver Cardápio",
   "info": "Sobre e Infos",
   "subscribe": "Alertas de Cardápio",
 
-  "choices:yes-no": "Sim|Não",
-  "yes": "Sim",
-  "no": "Não"
+  "choices:greetings": "Cardápio de Hoje"
 }

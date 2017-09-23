@@ -7,11 +7,8 @@ module.exports = [
     session.send('main:whoami')
     session.send('main:purpose')
 
-    const choiceOptions = session.localizer.gettext(
-      session.preferredLocale(), 'options:choices:yes-no')
-
     builder.Prompts.choice(session, 'main:firstinteraction',
-      choiceOptions, {
+      'confirm_yes|confirm_no', {
         maxRetries: 0,
         promptAfterAction: false,
         listStyle: builder.ListStyle.button

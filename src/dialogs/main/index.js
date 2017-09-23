@@ -1,12 +1,16 @@
 module.exports = (bot) => {
   require('./main-dialog')('MainDialog', bot)
-    .triggerAction({ matches: /^(hello)/i })
+    .triggerAction({ matches: /^(help)/i })
+
+  require('./greetings-dialog')('GreetingsDialog', bot)
 
   // Shows a greeting message for new users
-  bot.on('conversationUpdate', message =>
-    ((message.membersAdded) ? bot.beginDialog(message.address, 'MainDialog') : null))
+  bot.on('conversationUpdate', message => {
+    if (!message.membersAdded) return null
 
-  // bot.beginDialogAction('GreetingsAction', 'GreetingsDialog', {
-  //   matches: /^(hello)/i
-  // })
+    const isBot = message.membersAdded
+      .every(member => member.id === message.address.bot.id)
+
+    return (isBot ? null : bot.beginDialog(message.address, 'GreetingsDialog'))
+  })
 }

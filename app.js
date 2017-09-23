@@ -1,15 +1,19 @@
-const app = require('express')()
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
+const express = require('express')
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
+const app = express()
 const log = require('./src/log')
 
 dotenv.config()
 
 // Express middleware: json request parser
 app.use(bodyParser.json())
+
+// Express static files
+app.use(express.static('public'))
 
 // Express routes
 require('./src/routes/v1')(app)

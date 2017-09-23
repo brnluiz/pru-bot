@@ -4,7 +4,6 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-const configs = require('./configs')
 const log = require('./src/log')
 
 dotenv.config()

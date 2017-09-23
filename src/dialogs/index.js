@@ -20,7 +20,12 @@ module.exports = () => {
     appPassword: process.env.MICROSOFT_APP_PASSWORD
   })
 
-  const bot = new builder.UniversalBot(connector)
+  const bot = new builder.UniversalBot(connector, {
+    localizerSettings: {
+      defaultLocale: 'pt-br'
+    }
+  })
+
   bot.dialog('/', (session) =>
     session.endDialog('Not recognized'))
 

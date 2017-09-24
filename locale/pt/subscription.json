@@ -1,0 +1,9 @@
+{
+  "subscribe-prompt": "Você deseja RECEBER notificações diárias com o cardápio do RU?",
+  "unsubscribe-prompt": "Você deseja PARAR de receber notificações diárias com o cardápio do RU?",
+
+  "not-subscribed": "Pruuu! Sua inscrição não foi confirmada",
+  "subscribed": "Pruuu! Sua inscrição foi CONFIRMADA",
+  "not-unsubscribed": "Pruuu! Sua inscrição não foi cancelada",
+  "unsubscribed": "Pruuu! Sua inscrição foi CANCELADA"
+}

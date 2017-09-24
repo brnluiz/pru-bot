@@ -8,9 +8,9 @@ module.exports = [
       `${url}/public/assets/images/hero_pigeon.jpg`)
 
     const buttons = [
-      builder.CardAction.dialogAction(session, 'Subscriptions', {}, 'options:subscribe'),
-      builder.CardAction.dialogAction(session, 'TodaysMenu', {}, 'options:today-menu'),
-      builder.CardAction.dialogAction(session, 'WeeksMenu', {}, 'options:menu')
+      builder.CardAction.dialogAction(session, 'SubscriptionAction', {}, 'options:subscribe'),
+      builder.CardAction.dialogAction(session, 'TodayMenuAction', {}, 'options:today-menu'),
+      builder.CardAction.dialogAction(session, 'WeekMenuAction', {}, 'options:menu')
     ]
 
     const card = new builder.HeroCard(session)

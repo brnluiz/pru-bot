@@ -25,8 +25,9 @@ services:
       - MONGODB_URI=mongodb://mongodb.host/pru-menu
       - AUTH_USER=test
       - AUTH_PASSWORD=test
+      - PORT=9000
     ports:
-      - 80:9000
+      - 9000:9000
     links:
       - mongodb:mongodb.host
 

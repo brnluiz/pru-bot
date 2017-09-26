@@ -1,5 +1,5 @@
 const error = require('../../../errors')
-const userRepository = require('../../../db/repositories/user-repository')
+const userRepository = require('../db/repositories/user-repository')
 
 module.exports = {
   create (userIn) {

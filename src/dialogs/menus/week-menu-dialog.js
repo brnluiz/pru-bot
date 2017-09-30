@@ -9,6 +9,8 @@ module.exports = [
     session.sendTyping()
 
     const images = menuImagesHelper.generate()
+
+    // TODO: This should not be hardcoded!
     const menus = await menuService.getWeek('ufsc-trindade')
 
     const cards = menus.map((item, index) => {

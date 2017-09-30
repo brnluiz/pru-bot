@@ -1,5 +1,6 @@
 const request = require('axios')
 
+// TODO: This should be moved to a config file
 const configs = {
   baseURL: process.env.PRU_MENUS_URI,
   auth: {

@@ -1,4 +1,3 @@
-const moment = require('moment')
 const request = require('axios')
 
 const configs = {
@@ -10,33 +9,12 @@ const configs = {
 }
 
 module.exports = {
-  getWeek (locationId) {
-    const week = moment().startOf('isoweek')
-
-    const startDate = week.format('YYYY-MM-DD')
-    const endDate = week.add(6, 'days').format('YYYY-MM-DD')
-
-    console.log(`/v1/locations/${locationId}/menus` +
-      `?startDate=${startDate}&endDate=${endDate}`)
-
+  getMenu (locationId, date) {
+    return request.get(`/v1/locations/${locationId}/menus` +
+      `?date=${date}`, configs)
+  },
+  getMenus (locationId, startDate, endDate) {
     return request.get(`/v1/locations/${locationId}/menus` +
       `?startDate=${startDate}&endDate=${endDate}`, configs)
-  },
-  getToday (locationId) {
-    const today = moment()
-      .startOf('day')
-      .format('YYYY-MM-DD')
-
-    return request
-      .get(`/v1/locations/${locationId}/menus?date=${today}`, configs)
-  },
-  getTomorrow (locationId) {
-    const tomorrow = moment()
-      .startOf('day')
-      .add(1, 'day')
-      .format('YYYY-MM-DD')
-
-    return request
-      .get(`/v1/locations/${locationId}/menus?date=${tomorrow}`, configs)
   }
 }

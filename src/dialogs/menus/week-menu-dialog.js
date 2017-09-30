@@ -1,7 +1,7 @@
 const builder = require('botbuilder')
 const moment = require('moment')
 
-const menuService = require('../../apis/pru-menus-api')
+const menuService = require('../../services/menu-service')
 const menuImagesHelper = require('./helpers/menu-images-helper')
 
 module.exports = [
@@ -11,7 +11,7 @@ module.exports = [
     const images = menuImagesHelper.generate()
     const menus = await menuService.getWeek('ufsc-trindade')
 
-    const cards = menus.data.map((item, index) => {
+    const cards = menus.map((item, index) => {
       const payload = JSON.stringify({ date: item.date })
 
       const date = moment(item.date).utc()

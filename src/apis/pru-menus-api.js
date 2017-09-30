@@ -16,7 +16,10 @@ module.exports = {
     const startDate = week.format('YYYY-MM-DD')
     const endDate = week.add(6, 'days').format('YYYY-MM-DD')
 
-    return request.get(`/locations/${locationId}/menus` +
+    console.log(`/v1/locations/${locationId}/menus` +
+      `?startDate=${startDate}&endDate=${endDate}`)
+
+    return request.get(`/v1/locations/${locationId}/menus` +
       `?startDate=${startDate}&endDate=${endDate}`, configs)
   },
   getToday (locationId) {
@@ -25,7 +28,7 @@ module.exports = {
       .format('YYYY-MM-DD')
 
     return request
-      .get(`/locations/${locationId}/menus?date=${today}`, configs)
+      .get(`/v1/locations/${locationId}/menus?date=${today}`, configs)
   },
   getTomorrow (locationId) {
     const tomorrow = moment()

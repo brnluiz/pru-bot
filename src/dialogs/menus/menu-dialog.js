@@ -14,7 +14,7 @@ module.exports = [
 
       const items = formatItems(info.items)
       if (!items) {
-        session.send('menu:notavailable')
+        return session.send('menu:notavailable')
       }
 
       const date = moment(info.date)

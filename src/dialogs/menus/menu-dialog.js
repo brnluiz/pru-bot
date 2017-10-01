@@ -2,11 +2,23 @@ const moment = require('moment')
 
 const configs = require('../../../configs')
 const log = require('../../log')
+const emojisHelper = require('./helpers/menu-emojis-helper')
 
 const formatItems = (items) => items
   .filter(item => item !== '')
   .map(item => `- ${item}`)
   .join('\n')
+
+const formatMenu = (dateStr, items) => {
+  const emoji = emojisHelper.getOne()
+  const date = moment(dateStr)
+    .locale(configs.locale.default)
+    .utc().format('dddd')
+
+  const title = `${emoji} ${date}`
+
+  return `${title} \n\n ${items}`
+}
 
 module.exports = [
   (session, results, next) => {
@@ -18,11 +30,7 @@ module.exports = [
         return session.send('menus:notavailable')
       }
 
-      const date = moment(info.date)
-        .locale(configs.locale.default)
-        .utc().format('dddd')
-
-      const menu = `🍽️ ${date} \n\n ${items}`
+      const menu = formatMenu(info.date, items)
 
       return session.endDialog(menu)
     } catch (err) {

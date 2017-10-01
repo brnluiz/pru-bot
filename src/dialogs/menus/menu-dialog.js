@@ -5,6 +5,7 @@ const log = require('../../log')
 
 const formatItems = (items) => items
   .filter(item => item !== '')
+  .map(item => `- ${item}`)
   .join('\n')
 
 module.exports = [

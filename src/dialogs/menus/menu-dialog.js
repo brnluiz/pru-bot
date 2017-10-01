@@ -1,5 +1,6 @@
 const moment = require('moment')
 
+const configs = require('../../../configs')
 const log = require('../../log')
 
 const formatItems = (items) => items
@@ -17,7 +18,7 @@ module.exports = [
       }
 
       const date = moment(info.date)
-        .locale(session.preferredLocale())
+        .locale(configs.locale.default)
         .utc().format('dddd')
 
       const menu = `🍽️ ${date} \n\n ${items}`

@@ -1,6 +1,7 @@
 const builder = require('botbuilder')
 const fs = require('fs')
 
+const configs = require('../../configs')
 const log = require('../log')
 const path = require('path')
 
@@ -22,7 +23,7 @@ module.exports = () => {
 
   const bot = new builder.UniversalBot(connector, {
     localizerSettings: {
-      defaultLocale: 'pt'
+      defaultLocale: configs.locale.default
     }
   })
 

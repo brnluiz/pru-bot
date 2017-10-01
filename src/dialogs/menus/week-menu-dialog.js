@@ -1,6 +1,7 @@
 const builder = require('botbuilder')
 const moment = require('moment')
 
+const configs = require('../../../configs')
 const menuService = require('../../services/menu-service')
 const menuImagesHelper = require('./helpers/menu-images-helper')
 
@@ -18,7 +19,8 @@ module.exports = [
 
       const date = moment(item.date).utc()
       const dateNumber = date.format('DD/M/YY')
-      const dateString = date.locale('pt-br').format('dddd')
+      const dateString = date.locale(configs.locale.default)
+        .format('dddd')
       const title = `${dateString} (${dateNumber})`
 
       const button = builder.CardAction

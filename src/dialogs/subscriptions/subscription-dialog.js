@@ -1,9 +1,16 @@
-module.exports = [
-  (session) => {
-    const isSubscribed = true
+const userService = require('../../services/user-service')
 
-    return (isSubscribed
-      ? session.replaceDialog('SubscribeDialog')
-      : session.replaceDialog('UnsubscribeDialog'))
+module.exports = [
+  async (session) => {
+    const address = session.message.address
+
+    const user = await userService.getOrCreate({
+      id: address.user.id,
+      address
+    })
+
+    return (user.subscribed
+      ? session.replaceDialog('UnsubscribeDialog')
+      : session.replaceDialog('SubscribeDialog'))
   }
 ]

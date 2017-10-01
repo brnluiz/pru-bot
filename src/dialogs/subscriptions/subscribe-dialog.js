@@ -1,5 +1,7 @@
 const builder = require('botbuilder')
 
+const userService = require('../../services/user-service')
+
 const isResponseYes = results =>
   (results.response && results.response.entity === 'yes')
 
@@ -15,10 +17,10 @@ module.exports = [
 
     return session.endDialog('subscriptions:not-subscribed')
   },
-  (session) => {
+  async (session) => {
     session.sendTyping()
 
-    // Create subscription
+    await userService.subscribe(session.message.user.id)
 
     return session.endDialog('subscriptions:subscribed')
   }]

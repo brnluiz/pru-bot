@@ -1,8 +1,15 @@
 const joi = require('../schemas/user-schema')
-const { schema, mongoose } = require('./_mongo')(joi)
+const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
 
 // Set indexes
-schema.address.unique = true
+const schema = new mongoose.Schema({
+  _id: { type: String, unique: true, alias: 'id' },
+  address: { type: Object, required: true },
+  subscribed: { type: Boolean, default: false },
+  updatedAt: { type: Date, default: Date.now },
+  createdAt: { type: Date, default: Date.now }
+})
 
 const User = mongoose.model('User', schema)
 User.joi = joi

@@ -14,7 +14,7 @@ module.exports = [
 
       const items = formatItems(info.items)
       if (!items) {
-        return session.send('menu:notavailable')
+        return session.send('menus:notavailable')
       }
 
       const date = moment(info.date)
@@ -26,7 +26,7 @@ module.exports = [
       return session.endDialog(menu)
     } catch (err) {
       log.error({ err }, 'Error on parsing payload on MenuDialog')
-      return session.endDialog('menu:notavailable')
+      return session.endDialog('menus:notavailable')
     }
   }
 ]

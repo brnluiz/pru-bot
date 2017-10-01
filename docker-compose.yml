@@ -33,9 +33,8 @@ services:
 
   mongodb:
     image: mongo:3.4
-    # Port not exposed due to CircleCI
-    # ports:
-      # - '27017:27016'
+    ports:
+      - 27017:27017
 
 volumes:
   dummy:

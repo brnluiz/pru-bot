@@ -24,7 +24,7 @@ module.exports = [
       const title = `${dateString} (${dateNumber})`
 
       const button = builder.CardAction
-        .dialogAction(session, 'OpenMenuAction', payload, dateString)
+        .dialogAction(session, 'OpenMenuAction', payload, 'menus:view')
 
       const card = new builder.HeroCard(session)
         .title(title)

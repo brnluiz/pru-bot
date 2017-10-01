@@ -1,13 +1,6 @@
 const request = require('axios')
 
-// TODO: This should be moved to a config file
-const configs = {
-  baseURL: process.env.PRU_MENUS_URI,
-  auth: {
-    username: process.env.PRU_MENUS_AUTH_USER,
-    password: process.env.PRU_MENUS_AUTH_PASSWORD
-  }
-}
+const configs = require('../../configs/apis').menus
 
 module.exports = {
   getMenu (locationId, date) {

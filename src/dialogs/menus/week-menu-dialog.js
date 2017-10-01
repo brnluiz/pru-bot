@@ -14,7 +14,7 @@ module.exports = [
     const menus = await menuService.getWeek('ufsc-trindade')
 
     const cards = menus.map((item, index) => {
-      const payload = JSON.stringify({ date: item.date })
+      const payload = JSON.stringify(item)
 
       const date = moment(item.date).utc()
       const dateNumber = date.format('DD/M/YY')
@@ -22,7 +22,7 @@ module.exports = [
       const title = `${dateString} (${dateNumber})`
 
       const button = builder.CardAction
-        .dialogAction(session, 'DayMenu', payload, dateString)
+        .dialogAction(session, 'OpenMenuAction', payload, dateString)
 
       const card = new builder.ThumbnailCard(session)
         .title(title)

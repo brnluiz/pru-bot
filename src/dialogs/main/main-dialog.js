@@ -5,7 +5,7 @@ const url = process.env.URL || `http://localhost:${process.env.PORT}`
 module.exports = [
   (session, results, next) => {
     const image = builder.CardImage.create(session,
-      `${url}/public/assets/images/hero_pigeon.jpg`)
+      `${url}/assets/images/hero_pigeon.jpg`)
 
     const buttons = [
       builder.CardAction.dialogAction(session, 'SubscriptionAction', {}, 'options:subscribe'),

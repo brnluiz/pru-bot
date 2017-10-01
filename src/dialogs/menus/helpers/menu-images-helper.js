@@ -1,5 +1,5 @@
 const url = process.env.URL || `http://localhost:${process.env.PORT}`
-const path = 'public/assets/images'
+const path = 'assets/images'
 
 const shuffle = (arr) =>
   arr.sort(() => (Math.random() - 0.5))

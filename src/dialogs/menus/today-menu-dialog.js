@@ -11,6 +11,6 @@ module.exports = [
 
     const payload = JSON.stringify(menus[0])
 
-    return session.beginDialog('MenuDialog', payload)
+    return session.replaceDialog('MenuDialog', payload)
   }
 ]

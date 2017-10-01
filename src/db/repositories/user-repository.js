@@ -9,5 +9,8 @@ module.exports = {
   },
   create (userIn) {
     return User.create(userIn)
+  },
+  update (userIn) {
+    return User.update({ _id: userIn.id }, userIn)
   }
 }

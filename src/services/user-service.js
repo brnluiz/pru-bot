@@ -1,4 +1,4 @@
-const error = require('../../../errors')
+const error = require('../errors')
 const userRepository = require('../db/repositories/user-repository')
 
 module.exports = {
@@ -22,5 +22,32 @@ module.exports = {
     }
 
     return user
+  },
+  async getOrCreate (userIn) {
+    try {
+      const user = await userRepository.get(userIn.id)
+
+      if (!user) {
+        return userRepository.create(userIn)
+      }
+
+      return user
+    } catch (err) {
+      throw err
+    }
+  },
+  async subscribe (id) {
+    try {
+      return userRepository.update({ id, subscribed: true })
+    } catch (err) {
+      throw err
+    }
+  },
+  async unsubscribe (id) {
+    try {
+      return userRepository.update({ id, subscribed: false })
+    } catch (err) {
+      throw err
+    }
   }
 }

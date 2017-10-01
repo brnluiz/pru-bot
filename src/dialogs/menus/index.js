@@ -1,6 +1,6 @@
-const mainDialog = require('./week-menu-dialog')
+const weekMenuDialog = require('./week-menu-dialog')
 
 module.exports = (bot) => {
-  bot.dialog('WeekMenuDialog', mainDialog)
+  bot.dialog('WeekMenuDialog', weekMenuDialog)
     .triggerAction({ matches: /^(week)/i })
 }

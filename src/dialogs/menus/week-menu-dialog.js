@@ -26,7 +26,7 @@ module.exports = [
       const button = builder.CardAction
         .dialogAction(session, 'OpenMenuAction', payload, dateString)
 
-      const card = new builder.ThumbnailCard(session)
+      const card = new builder.HeroCard(session)
         .title(title)
         .images([builder.CardImage.create(session, images[index])])
         .buttons([button])

@@ -5,7 +5,7 @@ const isResponseYes = results =>
 
 module.exports = [
   (session) => {
-    builder.Prompts.choice(session, 'subscription:subscribe-prompt',
+    builder.Prompts.choice(session, 'subscriptions:subscribe-prompt',
       'yes|no', {
         maxRetries: 0,
         promptAfterAction: false
@@ -13,12 +13,12 @@ module.exports = [
   }, (session, results, next) => {
     if (isResponseYes(results)) return next()
 
-    return session.endDialog('subscription:not-subscribed')
+    return session.endDialog('subscriptions:not-subscribed')
   },
   (session) => {
     session.sendTyping()
 
     // Create subscription
 
-    return session.endDialog('subscription:subscribed')
+    return session.endDialog('subscriptions:subscribed')
   }]

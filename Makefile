@@ -18,31 +18,31 @@ stop:
 
 .PHONY: spec-watch
 spec-watch:
-	docker-compose run pru-bot npm run test:spec:watch
+	docker-compose run app npm run test:spec:watch
 
 .PHONY: spec
 spec:
-	docker-compose run pru-bot npm run test:spec
+	docker-compose run app npm run test:spec
 
 .PHONY: unit
 unit:
-	docker-compose run pru-bot npm run test:unit
+	docker-compose run app npm run test:unit
 
 .PHONY: unit-watch
 unit-watch:
-	docker-compose run pru-bot npm run test:unit:watch
+	docker-compose run app npm run test:unit:watch
 
 .PHONY: test
 test:
-	docker-compose run pru-bot npm test
+	docker-compose run app npm test
 
 .PHONY: attach
 attach:
-	docker-compose run pru-bot bash
+	docker-compose run app bash
 
 .PHONY: docs
 docs:
-	docker-compose run pru-bot npm run docs
+	docker-compose run app npm run docs
 
 .PHONY: logs
 logs:
@@ -54,12 +54,12 @@ logs-spec:
 
 .PHONY: seed
 seed:
-	docker-compose run pru-bot curl -v \
+	docker-compose run app curl -v \
 		-H 'Content-Type: application/json' \
 		-u test:test \
 		-d '{"name":"UFSC Trindade","slug":"ufsc-trindade","description":"Choose life","price":1.50}' \
 		-X POST http://pru-menus.host:9000/v1/locations
-	docker-compose run pru-bot curl -v \
+	docker-compose run app curl -v \
 		-H 'Content-Type: application/json' \
 		-u test:test \
 		-X POST http://pru-menus.host:9000/v1/locations/ufsc-trindade/collect

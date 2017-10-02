@@ -1,5 +1,6 @@
 const builder = require('botbuilder')
 
+const log = require('../../log')
 const userService = require('../../services/user-service')
 
 const isResponseYes = results =>
@@ -18,9 +19,14 @@ module.exports = [
     return session.endDialog('subscriptions:not-subscribed')
   },
   async (session) => {
-    session.sendTyping()
+    try {
+      session.sendTyping()
 
-    await userService.subscribe(session.message.user.id)
+      await userService.subscribe(session.message.user.id)
 
-    return session.endDialog('subscriptions:subscribed')
+      return session.endDialog('subscriptions:unsubscribed')
+    } catch (err) {
+      log.error({ err }, 'Error on SubscriptionDialog')
+      return session.endDialog('subscriptions:error')
+    }
   }]

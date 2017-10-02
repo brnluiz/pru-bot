@@ -12,8 +12,8 @@ module.exports = [
       })
 
       return (user.subscribed
-        ? session.replaceDialog('UnsubscribeDialog')
-        : session.replaceDialog('SubscribeDialog'))
+        ? session.replaceDialog('/subscriptions/unsubscribe')
+        : session.replaceDialog('/subscriptions/subscribe'))
     } catch (err) {
       log.error({ err }, 'Error on SubscriptionDialog')
       return session.endDialog('subscriptions:error')

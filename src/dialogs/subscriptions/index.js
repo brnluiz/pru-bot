@@ -3,11 +3,11 @@ const subscribeDialog = require('./subscribe-dialog')
 const unsubscribeDialog = require('./unsubscribe-dialog')
 
 module.exports = (bot) => {
-  bot.dialog('SubscriptionDialog', subscriptionDialog)
+  bot.dialog('/subscription', subscriptionDialog)
     .triggerAction({ matches: /^(subscribe)/i })
 
-  bot.dialog('SubscribeDialog', subscribeDialog)
-  bot.dialog('UnsubscribeDialog', unsubscribeDialog)
+  bot.dialog('/subscription/subscribe', subscribeDialog)
+  bot.dialog('/subscription/unsubscribe', unsubscribeDialog)
 
-  bot.beginDialogAction('SubscriptionAction', 'SubscriptionDialog')
+  bot.beginDialogAction('SubscriptionAction', '/subscription')
 }

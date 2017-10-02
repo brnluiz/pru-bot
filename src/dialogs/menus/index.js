@@ -3,15 +3,15 @@ const todayMenuDialog = require('./today-menu-dialog')
 const weekMenuDialog = require('./week-menu-dialog')
 
 module.exports = (bot) => {
-  bot.dialog('MenuDialog', menuDialog)
+  bot.dialog('/menu', menuDialog)
 
-  bot.dialog('TodayMenuDialog', todayMenuDialog)
+  bot.dialog('/menus/today', todayMenuDialog)
     .triggerAction({ matches: /^(today)/i })
 
-  bot.dialog('WeekMenuDialog', weekMenuDialog)
+  bot.dialog('/menus/week', weekMenuDialog)
     .triggerAction({ matches: /^(week)/i })
 
-  bot.beginDialogAction('OpenMenuAction', 'MenuDialog')
-  bot.beginDialogAction('TodayMenuAction', 'TodayMenuDialog')
-  bot.beginDialogAction('WeekMenuAction', 'WeekMenuDialog')
+  bot.beginDialogAction('OpenMenuAction', '/menu')
+  bot.beginDialogAction('TodayMenuAction', '/menus/today')
+  bot.beginDialogAction('WeekMenuAction', '/menus/week')
 }

@@ -16,7 +16,7 @@ module.exports = [
 
       const payload = JSON.stringify(menus[0])
 
-      return session.replaceDialog('MenuDialog', payload)
+      return session.replaceDialog('/menu', payload)
     } catch (err) {
       log.error({ err }, 'Error on TodayMenuDialog')
       return session.endDialog('menus:notavailable')

@@ -42,7 +42,7 @@ bot.on('conversationUpdate', message => {
   const isBot = message.membersAdded
     .every(member => member.id === message.address.bot.id)
 
-  return (isBot ? null : bot.beginDialog(message.address, 'GreetingsDialog'))
+  return (isBot ? null : bot.beginDialog(message.address, '/greetings'))
 })
 
 module.exports = () => ({ connector, bot })

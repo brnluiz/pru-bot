@@ -8,5 +8,5 @@ module.exports = [
 
     return next()
   },
-  (session) => session.beginDialog('MainDialog')
+  (session) => session.beginDialog('/main')
 ]

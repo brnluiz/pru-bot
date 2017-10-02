@@ -6,7 +6,6 @@ const log = require('../../log')
 module.exports = [
   async (session, results, next) => {
     try {
-      // TODO: This should not be hardcoded!
       const menus = await menuService
         .getToday(configs.general.defaults.location)
 

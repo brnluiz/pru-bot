@@ -11,14 +11,14 @@ module.exports = [
     try {
       session.sendTyping()
 
-      const images = menuImagesHelper.generate()
-
-      // TODO: This should not be hardcoded!
       const menus = await menuService
         .getWeek(configs.general.defaults.location)
+
       if (!menus.length) {
         return session.endDialog('menus:notavailable')
       }
+
+      const images = menuImagesHelper.generate()
 
       const cards = menus.map((item, index) => {
         const payload = JSON.stringify(item)

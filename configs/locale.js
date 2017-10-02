@@ -1,4 +1,4 @@
 module.exports = {
-  default: 'pt',
-  supported: ['pt']
+  default: 'pt-br',
+  supported: ['pt-br']
 }

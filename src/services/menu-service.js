@@ -9,7 +9,7 @@ module.exports = {
       const week = moment().startOf('isoweek')
 
       const startDate = week.format('YYYY-MM-DD')
-      const endDate = week.add(6, 'days').format('YYYY-MM-DD')
+      const endDate = week.add(6, 'days').utc().format('YYYY-MM-DD')
 
       const menus = await menusApi.getMenus(locationId, startDate, endDate)
 

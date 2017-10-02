@@ -6,7 +6,6 @@ module.exports = [
     session.send('main:purpose')
     session.send('main:firstinteraction')
 
-    return next()
-  },
-  (session) => session.beginDialog('/main')
+    return session.replaceDialog('/main')
+  }
 ]

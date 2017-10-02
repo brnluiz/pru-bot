@@ -22,7 +22,7 @@ const connector = new builder.ChatConnector({
 
 const bot = new builder.UniversalBot(connector, {
   localizerSettings: {
-    defaultLocale: configs.locale.default
+    defaultLocale: configs.general.defaults.locale
   }
 })
 

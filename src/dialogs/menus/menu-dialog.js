@@ -12,7 +12,7 @@ const formatItems = (items) => items
 const formatMenu = (dateStr, items) => {
   const emoji = emojisHelper.getOne()
   const date = moment(dateStr)
-    .locale(configs.locale.default)
+    .locale(configs.general.defaults.locale)
     .utc().format('dddd')
 
   const title = `${emoji} ${date}`

@@ -22,7 +22,7 @@ module.exports = [
 
       const date = moment(item.date).utc()
       const dateNumber = date.format('DD/M/YY')
-      const dateString = date.locale(configs.locale.default)
+      const dateString = date.locale(configs.general.defaults.locale)
         .format('dddd')
       const title = `${dateString} (${dateNumber})`
 

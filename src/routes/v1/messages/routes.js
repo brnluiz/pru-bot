@@ -1,4 +1,4 @@
-const connector = require('../../../dialogs')()
+const { connector } = require('../../../dialogs')()
 
 const router = require('express').Router()
 

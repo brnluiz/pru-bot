@@ -15,36 +15,34 @@ const importDialog = (bot, dialog) => {
   log.info(`Added ${dialog}`)
 }
 
-module.exports = () => {
-  const connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
-  })
+const connector = new builder.ChatConnector({
+  appId: process.env.MICROSOFT_APP_ID,
+  appPassword: process.env.MICROSOFT_APP_PASSWORD
+})
 
-  const bot = new builder.UniversalBot(connector, {
-    localizerSettings: {
-      defaultLocale: configs.locale.default
-    }
-  })
+const bot = new builder.UniversalBot(connector, {
+  localizerSettings: {
+    defaultLocale: configs.locale.default
+  }
+})
 
-  // Add all dialogs
-  fs.readdirSync(dir)
-    .filter(file => isDirectory(dir, file))
-    .forEach(dialog => importDialog(bot, dialog))
+// Add all dialogs
+fs.readdirSync(dir)
+  .filter(file => isDirectory(dir, file))
+  .forEach(dialog => importDialog(bot, dialog))
 
-  // Default dialog
-  bot.dialog('/', (session) =>
-    session.endDialog('Not recognized'))
+// Default dialog
+bot.dialog('/', (session) =>
+  session.endDialog('Not recognized'))
 
-  // Shows a greeting message for new users
-  bot.on('conversationUpdate', message => {
-    if (!message.membersAdded) return null
+// Shows a greeting message for new users
+bot.on('conversationUpdate', message => {
+  if (!message.membersAdded) return null
 
-    const isBot = message.membersAdded
-      .every(member => member.id === message.address.bot.id)
+  const isBot = message.membersAdded
+    .every(member => member.id === message.address.bot.id)
 
-    return (isBot ? null : bot.beginDialog(message.address, 'GreetingsDialog'))
-  })
+  return (isBot ? null : bot.beginDialog(message.address, 'GreetingsDialog'))
+})
 
-  return connector
-}
+module.exports = () => ({ connector, bot })

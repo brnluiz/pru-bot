@@ -18,31 +18,31 @@ stop:
 
 .PHONY: spec-watch
 spec-watch:
-	docker-compose run web npm run test:spec:watch
+	docker-compose run pru-bot npm run test:spec:watch
 
 .PHONY: spec
 spec:
-	docker-compose run web npm run test:spec
+	docker-compose run pru-bot npm run test:spec
 
 .PHONY: unit
 unit:
-	docker-compose run web npm run test:unit
+	docker-compose run pru-bot npm run test:unit
 
 .PHONY: unit-watch
 unit-watch:
-	docker-compose run web npm run test:unit:watch
+	docker-compose run pru-bot npm run test:unit:watch
 
 .PHONY: test
 test:
-	docker-compose run web npm test
+	docker-compose run pru-bot npm test
 
 .PHONY: attach
 attach:
-	docker-compose run web bash
+	docker-compose run pru-bot bash
 
 .PHONY: docs
 docs:
-	docker-compose run web npm run docs
+	docker-compose run pru-bot npm run docs
 
 .PHONY: logs
 logs:

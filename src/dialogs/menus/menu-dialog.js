@@ -27,7 +27,7 @@ module.exports = [
 
       const items = formatItems(info.items)
       if (!items) {
-        return session.send('menus:notavailable')
+        return session.endDialog('menus:notavailable')
       }
 
       const menu = formatMenu(info.date, items)

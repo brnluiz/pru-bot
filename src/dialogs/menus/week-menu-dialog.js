@@ -13,6 +13,9 @@ module.exports = [
 
     // TODO: This should not be hardcoded!
     const menus = await menuService.getWeek('ufsc-trindade')
+    if (!menus.length) {
+      return session.endDialog('menu:notavailable')
+    }
 
     const cards = menus.map((item, index) => {
       const payload = JSON.stringify(item)

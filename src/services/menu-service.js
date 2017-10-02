@@ -1,12 +1,14 @@
 const moment = require('moment')
 
+const configs = require('../../configs')
 const log = require('../log')
 const menusApi = require('../apis/pru-menus-api')
 
 module.exports = {
   async getWeek (locationId) {
     try {
-      const week = moment().startOf('isoweek')
+      const week = moment().utcOffset(configs.locale.timezone)
+        .startOf('isoweek')
 
       const startDate = week.format('YYYY-MM-DD')
       const endDate = week.add(6, 'days').utc().format('YYYY-MM-DD')
@@ -21,7 +23,8 @@ module.exports = {
   },
   async getToday (locationId) {
     try {
-      const today = moment().startOf('day')
+      const today = moment().utcOffset(configs.locale.timezone)
+        .startOf('day')
         .format('YYYY-MM-DD')
 
       const menus = await menusApi.getMenu(locationId, today)
@@ -34,7 +37,7 @@ module.exports = {
   },
   async getTomorrow (locationId) {
     try {
-      const tomorrow = moment()
+      const tomorrow = moment().utcOffset(configs.locale.timezone)
         .startOf('day')
         .add(1, 'day')
         .format('YYYY-MM-DD')

@@ -51,3 +51,15 @@ logs:
 .PHONY: logs
 logs-spec:
 	tail -f spec.log
+
+.PHONY: seed
+seed:
+	docker-compose run pru-bot curl -v \
+		-H 'Content-Type: application/json' \
+		-u test:test \
+		-d '{"name":"UFSC Trindade","slug":"ufsc-trindade","description":"Choose life","price":1.50}' \
+		-X POST http://pru-menus.host:9000/v1/locations
+	docker-compose run pru-bot curl -v \
+		-H 'Content-Type: application/json' \
+		-u test:test \
+		-X POST http://pru-menus.host:9000/v1/locations/ufsc-trindade/collect

@@ -22,7 +22,7 @@ services:
   pru-menus:
     image: brunoluiz/pru-menus
     environment:
-      - MONGODB_URI=mongodb://mongodb.host/pru-menu
+      - MONGODB_URI=mongodb://mongodb.host/pru-menus
       - AUTH_USER=test
       - AUTH_PASSWORD=test
       - PORT=9000

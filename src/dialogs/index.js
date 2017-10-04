@@ -32,8 +32,11 @@ fs.readdirSync(dir)
   .forEach(dialog => importDialog(bot, dialog))
 
 // Default dialog
-bot.dialog('/', (session) =>
-  session.endDialog('Not recognized'))
+bot.dialog('/', (session) => {
+  session.send('main:notrecognized')
+  session.send('main:help')
+  session.replaceDialog('/main')
+})
 
 // Shows a greeting message for new users
 bot.on('conversationUpdate', message => {

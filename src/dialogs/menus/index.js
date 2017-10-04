@@ -6,10 +6,10 @@ module.exports = (bot) => {
   bot.dialog('/menu', menuDialog)
 
   bot.dialog('/menus/today', todayMenuDialog)
-    .triggerAction({ matches: /^(today)/i })
+    .triggerAction({ matches: /^(today|hoje)/i })
 
   bot.dialog('/menus/week', weekMenuDialog)
-    .triggerAction({ matches: /^(week)/i })
+    .triggerAction({ matches: /^(week|semana)/i })
 
   bot.beginDialogAction('OpenMenuAction', '/menu')
   bot.beginDialogAction('TodayMenuAction', '/menus/today')

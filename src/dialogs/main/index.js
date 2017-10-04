@@ -2,5 +2,5 @@ const mainDialog = require('./main-dialog')
 
 module.exports = (bot) => {
   bot.dialog('/main', mainDialog)
-    .triggerAction({ matches: /^(help)/i })
+    .triggerAction({ matches: /^(help|ajuda|como)/i })
 }

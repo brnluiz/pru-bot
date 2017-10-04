@@ -35,6 +35,10 @@ and enable `ngrok` (required when using Docker). After this, connect to
 
 ## Todo
 
-- Create a queue systems for the notification endpoint
-- Create spec tests
-- Create unit tests
+- [ ] Create a queue systems for the notification endpoint
+- [ ] Create spec tests
+- [ ] Create unit tests
+- [ ] Create a /help dialog, with all options of /main but as a carousel menu
+- [ ] Replace dialog.triggerAction string matchers by intents
+- [ ] Add HTTP basic auth to the notifyall route
+- [ ] ADD CACHE ON MENU-SERVICE AND DON'T ALWAYS WAKE THE PRU-MENUS SERVICE (I PAY HOURLY!)

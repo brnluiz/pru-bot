@@ -8,7 +8,7 @@ module.exports = [
       `${url}/assets/images/hero_pigeon.jpg`)
 
     const buttons = [
-      builder.CardAction.dialogAction(session, 'SubscriptionAction', {}, 'options:subscribe'),
+      builder.CardAction.dialogAction(session, 'SubscriptionsAction', {}, 'options:subscribe'),
       builder.CardAction.dialogAction(session, 'TodayMenuAction', {}, 'options:today-menu'),
       builder.CardAction.dialogAction(session, 'WeekMenuAction', {}, 'options:menu')
     ]

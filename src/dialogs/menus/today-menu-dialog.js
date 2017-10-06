@@ -6,16 +6,14 @@ const log = require('../../log')
 module.exports = [
   async (session, results, next) => {
     try {
-      const menus = await menuService
+      const menu = await menuService
         .getToday(configs.general.defaults.location)
 
-      if (!menus) {
+      if (!menu) {
         session.send('menus:notavailable')
       }
 
-      const payload = {
-        data: JSON.stringify(menus)
-      }
+      const payload = { data: menu._id }
 
       return session.replaceDialog('/menu', payload)
     } catch (err) {

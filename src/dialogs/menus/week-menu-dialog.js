@@ -21,7 +21,7 @@ module.exports = [
       const images = menuImagesHelper.generate()
 
       const cards = menus.map((item, index) => {
-        const payload = JSON.stringify(item)
+        const payload = item._id
 
         const date = moment(item.date).utc()
         const dateNumber = date.format('DD/M/YY')

@@ -3,6 +3,7 @@ const moment = require('moment')
 const configs = require('../../../configs')
 const log = require('../../log')
 const emojisHelper = require('./helpers/menu-emojis-helper')
+const menuService = require('../../services/menu-service')
 
 const formatItems = (items) => items
   .filter(item => item !== '')
@@ -21,18 +22,18 @@ const formatMenu = (dateStr, items) => {
 }
 
 module.exports = [
-  (session, results, next) => {
+  async (session, results, next) => {
     try {
-      const info = JSON.parse(results.data)
+      const menu = await menuService.get(results.data)
 
-      const items = formatItems(info.items)
+      const items = formatItems(menu.items)
       if (!items) {
         return session.endDialog('menus:notavailable')
       }
 
-      const menu = formatMenu(info.date, items)
+      const msg = formatMenu(menu.date, items)
 
-      return session.endDialog(menu)
+      return session.endDialog(msg)
     } catch (err) {
       log.error({ err }, 'Error on parsing payload on MenuDialog')
       return session.endDialog('menus:notavailable')

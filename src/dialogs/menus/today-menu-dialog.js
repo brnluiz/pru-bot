@@ -13,7 +13,7 @@ module.exports = [
         session.send('menus:notavailable')
       }
 
-      const payload = { data: menu._id }
+      const payload = { data: menu.id }
 
       return session.replaceDialog('/menu', payload)
     } catch (err) {

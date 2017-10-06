@@ -12,5 +12,7 @@ module.exports.generate = () => shuffle([
   `${url}/${path}/food-5.jpg`,
   `${url}/${path}/food-6.jpg`,
   `${url}/${path}/food-7.jpg`,
-  `${url}/${path}/food-8.jpg`
+  `${url}/${path}/food-8.jpg`,
+  `${url}/${path}/food-9.jpg`,
+  `${url}/${path}/food-10.jpg`
 ])

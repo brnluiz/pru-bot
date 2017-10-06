@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise
 
 // Set indexes
 const schema = new mongoose.Schema({
-  _id: { type: String, unique: true, alias: 'id' },
+  _id: { type: String, alias: 'id' },
   address: { type: Object, required: true },
   subscribed: { type: Boolean, default: false },
   updatedAt: { type: Date, default: Date.now },

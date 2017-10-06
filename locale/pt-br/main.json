@@ -9,10 +9,13 @@
 
   "subscription:title": "Configurar Alertas",
   "subscription:subtitle": "Configure alertas diários com os cardápios do RU",
+  "subscription:button": "📅 Configurar Alertas",
 
   "today-menu:title": "Cardápio do Dia",
   "today-menu:subtitle": "Visualize o cardápio de hoje",
+  "today-menu:button": "🍽️ Ver cardápio",
 
   "week-menu:title": "Cardápio da Semana",
-  "week-menu:subtitle": "Visualize o cardápio da semana"
+  "week-menu:subtitle": "Visualize o cardápio da semana",
+  "week-menu:button": "🥗 Ver cardápios"
 }

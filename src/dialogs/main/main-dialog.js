@@ -14,15 +14,15 @@ module.exports = [
     ]
 
     const cards = items.map(item => {
-        const button = builder.CardAction
-          .dialogAction(session, item.action, {}, `main:${item.name}:title`)
+      const button = builder.CardAction
+        .dialogAction(session, item.action, {}, `main:${item.name}:title`)
 
-        return new builder.HeroCard(session)
-          .title(`main:${item.name}:title`)
-          .subtitle(`main:${item.name}:subtitle`)
-          .images([ builder.CardImage.create(session, `${url}/${path}/${item.name}.jpg`) ])
-          .buttons([button])
-          .tap(button)
+      return new builder.HeroCard(session)
+        .title(`main:${item.name}:title`)
+        .subtitle(`main:${item.name}:subtitle`)
+        .images([ builder.CardImage.create(session, `${url}/${path}/${item.name}.jpg`) ])
+        .buttons([button])
+        .tap(button)
     })
 
     const carousel = new builder.Message(session)

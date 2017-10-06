@@ -4,24 +4,31 @@ const url = process.env.URL || `http://localhost:${process.env.PORT}`
 
 module.exports = [
   (session, results, next) => {
-    const image = builder.CardImage.create(session,
-      `${url}/assets/images/hero_pigeon.jpg`)
+    session.sendTyping()
 
-    const buttons = [
-      builder.CardAction.dialogAction(session, 'SubscriptionsAction', {}, 'options:subscribe'),
-      builder.CardAction.dialogAction(session, 'TodayMenuAction', {}, 'options:today-menu'),
-      builder.CardAction.dialogAction(session, 'WeekMenuAction', {}, 'options:menu')
+    const items = [
+      { name: 'subscription', action: 'SubscriptionsAction' },
+      { name: 'today-menu', action: 'TodayMenuAction' },
+      { name: 'week-menu', action: 'WeekMenuAction' }
     ]
 
-    const card = new builder.HeroCard(session)
-      .title('main:whoami')
-      .text('main:description')
-      .images([ image ])
-      .buttons(buttons)
+    const cards = items.map(item => {
+        const button = builder.CardAction
+          .dialogAction(session, item.action, {}, `main:${item.name}:title`)
 
-    const msg = new builder.Message(session)
-      .addAttachment(card)
+        return new builder.HeroCard(session)
+          .title(`main:${item.name}:title`)
+          .subtitle(`main:${item.name}:subtitle`)
+          .images([ builder.CardImage.create(session, 'http://lorempixel.com/400/200/') ])
+          .buttons([button])
+          .tap(button)
+    })
 
-    return session.endDialog(msg)
+    const carousel = new builder.Message(session)
+        .textFormat(builder.TextFormat.xml)
+        .attachmentLayout(builder.AttachmentLayout.carousel)
+        .attachments(cards)
+
+    return session.endDialog(carousel)
   }
 ]

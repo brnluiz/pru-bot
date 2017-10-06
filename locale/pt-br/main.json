@@ -5,5 +5,14 @@
   "purpose": "Posso lhe informar os cardápios e notificar diariamente qual será o cardápio do dia",
   "firstinteraction": "De uma olhada nas opções abaixo e selecione uma delas",
   "notrecognized": "PRUUUUUU! Não consegui reconhecer o que você disse ou enviou!",
-  "help": "Talvez um dos comandos a seguir possa lhe ajudar"
+  "help": "Talvez um dos comandos a seguir possa lhe ajudar",
+
+  "subscription:title": "Configurar Alertas",
+  "subscription:subtitle": "Configure alertas diários com os cardápios do RU",
+
+  "today-menu:title": "Cardápio do Dia",
+  "today-menu:subtitle": "Visualize o cardápio de hoje",
+
+  "week-menu:title": "Cardápio da Semana",
+  "week-menu:subtitle": "Visualize o cardápio da semana"
 }

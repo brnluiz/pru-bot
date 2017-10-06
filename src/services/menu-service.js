@@ -5,6 +5,16 @@ const log = require('../log')
 const menusApi = require('../apis/pru-menus-api')
 
 module.exports = {
+  async get (id) {
+    try {
+      const menu = await menusApi.menus.get(id)
+
+      return menu.data
+    } catch (err) {
+      log.error({ err }, 'Error on getting menu')
+      return false
+    }
+  },
   async getWeek (locationId) {
     try {
       const week = moment().utcOffset(configs.general.defaults.timezone)
@@ -13,7 +23,8 @@ module.exports = {
       const startDate = week.format('YYYY-MM-DD')
       const endDate = week.add(6, 'days').utc().format('YYYY-MM-DD')
 
-      const menus = await menusApi.getMenus(locationId, startDate, endDate)
+      const menus = await menusApi.locations
+        .getMenus(locationId, startDate, endDate)
 
       return menus.data
     } catch (err) {
@@ -27,7 +38,8 @@ module.exports = {
         .startOf('day')
         .format('YYYY-MM-DD')
 
-      const menus = await menusApi.getMenu(locationId, today)
+      const menus = await menusApi.locations
+        .getMenu(locationId, today)
 
       return menus.data[0]
     } catch (err) {
@@ -42,7 +54,8 @@ module.exports = {
         .add(1, 'day')
         .format('YYYY-MM-DD')
 
-      const menus = await menusApi.getMenu(locationId, tomorrow)
+      const menus = await menusApi.menus
+        .getMenu(locationId, tomorrow)
 
       return menus.data[0]
     } catch (err) {

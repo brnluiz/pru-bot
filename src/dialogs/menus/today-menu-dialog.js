@@ -9,11 +9,13 @@ module.exports = [
       const menus = await menuService
         .getToday(configs.general.defaults.location)
 
-      if (!menus.length) {
+      if (!menus) {
         session.send('menus:notavailable')
       }
 
-      const payload = JSON.stringify(menus[0])
+      const payload = {
+        data: JSON.stringify(menus)
+      }
 
       return session.replaceDialog('/menu', payload)
     } catch (err) {

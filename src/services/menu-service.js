@@ -29,10 +29,10 @@ module.exports = {
 
       const menus = await menusApi.getMenu(locationId, today)
 
-      return menus.data
+      return menus.data[0]
     } catch (err) {
       log.error({ err }, 'Error on getting today\'s menu')
-      return []
+      return false
     }
   },
   async getTomorrow (locationId) {
@@ -44,10 +44,10 @@ module.exports = {
 
       const menus = await menusApi.getMenu(locationId, tomorrow)
 
-      return menus.data
+      return menus.data[0]
     } catch (err) {
       log.error({ err }, 'Error on getting tomorrow\'s menu')
-      return []
+      return false
     }
   }
 }

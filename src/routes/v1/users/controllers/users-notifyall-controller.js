@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
     // TODO: This should not be hardcoded!
     const todayMenu = await menuService
       .getToday(configs.general.defaults.location)
-    if (!todayMenu.length) {
+    if (!todayMenu) {
       return next(new errors.NotFoundError('No Menu Found for Today'))
     }
 

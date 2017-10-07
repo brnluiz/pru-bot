@@ -16,13 +16,13 @@ const importDialog = (bot, dialog) => {
 }
 
 const connector = new builder.ChatConnector({
-  appId: process.env.MICROSOFT_APP_ID,
-  appPassword: process.env.MICROSOFT_APP_PASSWORD
+  appId: configs.bot.appId,
+  appPassword: configs.bot.appPassword
 })
 
 const bot = new builder.UniversalBot(connector, {
   localizerSettings: {
-    defaultLocale: configs.general.defaults.locale
+    defaultLocale: configs.bot.defaultLocale
   }
 })
 

@@ -1,6 +1,6 @@
 const builder = require('botbuilder')
 
-const url = process.env.URL || `http://localhost:${process.env.PORT}`
+const configs = require('../../../configs')
 const path = 'assets/images/main-dialog'
 
 module.exports = [
@@ -20,7 +20,8 @@ module.exports = [
       return new builder.HeroCard(session)
         .title(`main:${item.name}:title`)
         .subtitle(`main:${item.name}:subtitle`)
-        .images([ builder.CardImage.create(session, `${url}/${path}/${item.name}.jpg`) ])
+        .images([ builder.CardImage.create(session,
+          `${configs.general.baseUrl}/${path}/${item.name}.jpg`) ])
         .buttons([button])
         .tap(button)
     })

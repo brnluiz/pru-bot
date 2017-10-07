@@ -25,13 +25,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
     },
     {
       "type": "postback",
-      "title":"Ver Cardápio",
+      "title":"Cardápios ",
       "payload":"action?WeekMenuAction"
     },
     {
       "type":"postback",
-      "title":"Ver Cardápio de Hoje",
-      "payload":"action?TodayMenuAction"
+      "title":"Ajuda",
+      "payload":"action?HelpAction"
     }
   ]
 }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$pagetoken"

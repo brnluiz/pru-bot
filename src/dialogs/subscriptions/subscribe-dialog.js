@@ -24,7 +24,7 @@ module.exports = [
 
       await userService.subscribe(session.message.user.id)
 
-      return session.endDialog('subscriptions:unsubscribed')
+      return session.endDialog('subscriptions:subscribed')
     } catch (err) {
       log.error({ err }, 'Error on SubscriptionDialog')
       return session.endDialog('subscriptions:error')

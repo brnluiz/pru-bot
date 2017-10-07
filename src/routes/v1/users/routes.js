@@ -1,5 +1,7 @@
+const config = require('../../../../configs')
 const router = require('express').Router()
 
+const authMiddleware = require('express-basic-auth')(config.auth)
 const usersNotifyAllController = require('./controllers/users-notifyall-controller')
 
 /**
@@ -11,6 +13,8 @@ const usersNotifyAllController = require('./controllers/users-notifyall-controll
  * @apiUse NotFoundError
  * @apiUse InternalServerError
  */
-router.post('/users/notifyAll', usersNotifyAllController)
+router.post('/users/notifyAll',
+  authMiddleware,
+  usersNotifyAllController)
 
 module.exports = router

@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser')
+const configs = require('./configs')
 const dotenv = require('dotenv')
 const express = require('express')
 const mongoose = require('mongoose')
@@ -31,11 +32,11 @@ app.use((error, req, res, next) => {
 })
 
 // Initialize Express server
-const port = process.env.PORT
+const port = configs.general.port
 app.listen(port, () => log.info('Up and running!'))
 
 // Initialize Mongoose ORM
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(configs.db.host, {
   useMongoClient: true
 })
 

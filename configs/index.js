@@ -1,6 +1,9 @@
 const changeCase = require('change-case')
+const dotenv = require('dotenv')
 const fs = require('fs')
 const path = require('path')
+
+dotenv.config()
 
 // Models loading
 fs.readdirSync(__dirname)

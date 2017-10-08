@@ -1,5 +1,6 @@
 module.exports = {
-  baseUrl: process.env.URL || `http://localhost:${process.env.PORT}`,
+  baseUrl: process.env.URL,
+  port: process.env.PORT,
   defaults: {
     location: 'ufsc-trindade',
     timezone: '-03:00',

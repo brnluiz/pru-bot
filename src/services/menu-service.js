@@ -9,7 +9,7 @@ module.exports = {
     try {
       const menu = await menusApi.menus.get(id)
 
-      return menu.data
+      return menu
     } catch (err) {
       log.error({ err }, 'Error on getting menu')
       return false
@@ -26,7 +26,7 @@ module.exports = {
       const menus = await menusApi.locations
         .getMenus(locationId, startDate, endDate)
 
-      return menus.data
+      return menus
     } catch (err) {
       log.error({ err }, 'Error on getting weekly menu')
       return []
@@ -41,7 +41,7 @@ module.exports = {
       const menus = await menusApi.locations
         .getMenu(locationId, today)
 
-      return menus.data[0]
+      return menus[0]
     } catch (err) {
       log.error({ err }, 'Error on getting today\'s menu')
       return false
@@ -57,7 +57,7 @@ module.exports = {
       const menus = await menusApi.menus
         .getMenu(locationId, tomorrow)
 
-      return menus.data[0]
+      return menus[0]
     } catch (err) {
       log.error({ err }, 'Error on getting tomorrow\'s menu')
       return false

@@ -29,16 +29,12 @@ and enable `ngrok` (required when using Docker). After this, connect to
 - `src/apis`: apis abstractions
 - `src/db`: database abstractions
 - `src/dialogs`: bot framework files/dialogs
-- `src/routes`: public exposed endpoints, with its controllers and middlewares
-- `src/services`: logic abstractions, such as the logic to control the users subscriptions
+- `src/routes`: public exposed endpoints, with its controllers and
+middlewares
+- `src/services`: logic abstractions, such as the logic to control
+the users subscriptions
 - `tests`: test support files
 
 ## Todo
 
-- [ ] Create a queue systems for the notification endpoint
-- [ ] Create spec tests
-- [ ] Create unit tests
-- [x] Create a /help dialog, with all options of /main but as a carousel menu
-- [ ] Replace dialog.triggerAction string matchers by intents
-- [x] Add HTTP basic auth to the notifyall route
-- [ ] ADD CACHE ON MENU-SERVICE AND DON'T ALWAYS WAKE THE PRU-MENUS SERVICE (I PAY HOURLY!)
+If you want to help on the project development, check out the Issues tab.

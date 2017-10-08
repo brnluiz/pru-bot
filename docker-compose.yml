@@ -17,6 +17,7 @@ services:
     links:
       - mongodb:mongodb.host
       - pru-menus:pru-menus.host
+      - redis:redis.host
     command: ../node_modules/.bin/nodemon -L ./app.js --inspect=0.0.0.0:9229
 
   pru-menus:
@@ -35,6 +36,11 @@ services:
     image: mongo:3.4
     ports:
       - 27017:27017
+
+  redis:
+    image: redis:4.0-alpine
+    ports:
+      - 6379:6379
 
 volumes:
   dummy:

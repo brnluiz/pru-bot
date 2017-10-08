@@ -10,7 +10,8 @@ module.exports = [
     const items = [
       { name: 'subscription', action: 'SubscriptionsAction' },
       { name: 'today-menu', action: 'TodayMenuAction' },
-      { name: 'week-menu', action: 'WeekMenuAction' }
+      { name: 'week-menu', action: 'WeekMenuAction' },
+      { name: 'about', action: 'AboutAction' }
     ]
 
     const cards = items.map(item => {

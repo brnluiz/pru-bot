@@ -1,0 +1,5 @@
+{
+  "people": "Esse projeto foi inicialmente desenvolvido por Bruno Luiz da Silva (http://brunoluiz.net)",
+  "tech": "Esse projeto consiste de dois serviços: pru-bot (bot) e pru-menus (scrapper de cardápios). Ambos foram escritos em NodeJS e possuem código aberto.",
+  "contribute": "Se você deseja colaborar com o projeto, acesse http://github.com/brunoluiz/pru-bot ou http://github.com/brunoluiz/pru-menus e ajude com abertura ou resolução de Issues."
+}

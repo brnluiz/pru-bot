@@ -7,7 +7,7 @@
     "start": "node app.js | bunyan",
     "lint": "standard",
     "docs": "apidoc -i ./ -o ./docs",
-    "test": "standard && npm run test:spec",
+    "test": "standard",
     "test:spec": "(npm start > ./spec.log) & ava spec/**/*.spec.js",
     "test:spec:watch": "npm run test:spec -- --watch",
     "test:unit": "NODE_ENV=test ava src/**/*.test.js",

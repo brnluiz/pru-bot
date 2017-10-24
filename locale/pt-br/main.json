@@ -7,11 +7,11 @@
 
   "subscribe:title": "Notificações",
   "subscribe:subtitle": "Configure notificações diárias com os cardápios do RU",
-  "subscribe:button": "Ativar Notificações",
+  "subscribe:button": "Ativar Alertas",
 
   "unsubscribe:title": "Notificações",
   "unsubscribe:subtitle": "Configure notificações diárias com os cardápios do RU",
-  "unsubscribe:button": "Cancelar Notificações",
+  "unsubscribe:button": "Cancelar Alertas",
 
   "today-menu:title": "Cardápio do Dia",
   "today-menu:subtitle": "Visualize o cardápio de hoje",

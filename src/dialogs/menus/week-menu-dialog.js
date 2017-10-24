@@ -20,26 +20,29 @@ module.exports = [
 
       const images = menuImagesHelper.generate()
 
-      const cards = menus.map((item, index) => {
-        const payload = item.id
+      const cards = menus
+        .filter(item => moment(item.date).isSameOrAfter(moment(), 'day'))
+        .sort((a, b) => (moment(a.date).isAfter(b.date) ? 1 : -1))
+        .map((item, index) => {
+          const payload = item.id
 
-        const date = moment(item.date).utc()
-        const dateNumber = date.format('DD/M/YY')
-        const dateString = date.locale(configs.general.defaults.locale)
-          .format('dddd')
-        const title = `${dateString} (${dateNumber})`
+          const date = moment(item.date).utc()
+          const dateNumber = date.format('DD/M/YY')
+          const dateString = date.locale(configs.general.defaults.locale)
+            .format('dddd')
+          const title = `${dateString} (${dateNumber})`
 
-        const button = builder.CardAction
-          .dialogAction(session, 'OpenMenuAction', payload, 'menus:view')
+          const button = builder.CardAction
+            .dialogAction(session, 'OpenMenuAction', payload, 'menus:view')
 
-        const card = new builder.HeroCard(session)
-          .title(title)
-          .images([builder.CardImage.create(session, images[index])])
-          .buttons([button])
-          .tap(button)
+          const card = new builder.HeroCard(session)
+            .title(title)
+            .images([builder.CardImage.create(session, images[index])])
+            .buttons([button])
+            .tap(button)
 
-        return card
-      })
+          return card
+        })
 
       const carousel = new builder.Message(session)
           .textFormat(builder.TextFormat.xml)

@@ -2,8 +2,6 @@
   "whoami": "Pruuuu! Sou o pRUBot",
   "description": "Dou informações do RU-UFSC e notificações dos cardápios diários - by @brunoluiz",
 
-  "purpose": "Posso lhe informar os cardápios e notificar diariamente qual será o cardápio do dia",
-  "firstinteraction": "De uma olhada nas opções abaixo e selecione uma delas",
   "notrecognized": "PRUUUUUU! Não consegui reconhecer o que você disse ou enviou!",
   "help": "Talvez um dos comandos a seguir possa lhe ajudar",
 

@@ -1,0 +1,10 @@
+{
+  "purpose": "Posso lhe informar os cardápios e notificar diariamente qual será o cardápio do dia",
+  "firstmenu": "Por exemplo, o cardápio de hoje é...",
+  "subscription:dialog": "Você deseja receber notificações como essa todos dias?",
+  "subscription:subscribed": "PRUUU! Te notificarei pelas 10-11h todos dias!",
+  "subscription:not-subscribed": "Ok! Sem problemas!",
+  "subscribe:error": "PRUUU! Algum erro ocorreu na hora de registrar seu alerta...",
+  "final": "Caso precisar da minha ajuda novamente é só clicar no menu de opções no lado inferior da tela ou digitar 'ajuda'. Segue o menu de opções..."
+}
+

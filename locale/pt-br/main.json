@@ -5,11 +5,13 @@
   "notrecognized": "PRUUUUUU! Não consegui reconhecer o que você disse ou enviou!",
   "help": "Talvez um dos comandos a seguir possa lhe ajudar",
 
-  "subscription:title": "Notificações",
-  "subscription:subtitle": "Configure notificações diárias com os cardápios do RU",
-  "subscription:button": "Configurar Notificações",
-  "subscription:button:cancel": "Cancelar Notificações",
-  "subscription:button:subscribe": "Receber Notificações",
+  "subscribe:title": "Notificações",
+  "subscribe:subtitle": "Configure notificações diárias com os cardápios do RU",
+  "subscribe:button": "Ativar Notificações",
+
+  "unsubscribe:title": "Notificações",
+  "unsubscribe:subtitle": "Configure notificações diárias com os cardápios do RU",
+  "unsubscribe:button": "Cancelar Notificações",
 
   "today-menu:title": "Cardápio do Dia",
   "today-menu:subtitle": "Visualize o cardápio de hoje",

@@ -2,20 +2,35 @@ const builder = require('botbuilder')
 
 const configs = require('../../../configs')
 const path = 'assets/images/main-dialog'
+const userService = require('../../services/user-service')
+
+const subscriptionOptionFactory = async (session) => {
+  const address = session.message.address
+
+  const user = await userService.getOrCreate({
+    id: address.user.id,
+    address
+  })
+
+  return (user.subscribed
+    ? { name: 'unsubscribe', action: 'UnsubscribeAction' }
+    : { name: 'subscribe', action: 'SubscribeAction' })
+}
 
 module.exports = [
-  (session, results, next) => {
+  async (session, results, next) => {
     session.sendTyping()
 
+    const subscription = await subscriptionOptionFactory(session)
     const items = [
-      { name: 'subscription', action: 'SubscriptionsAction' },
+      subscription,
       { name: 'week-menu', action: 'WeekMenuAction' },
       { name: 'about', action: 'AboutAction' }
     ]
 
     const cards = items.map(item => {
       const button = builder.CardAction
-        .dialogAction(session, item.action, {}, `main:${item.name}:title`)
+        .dialogAction(session, item.action, {}, `main:${item.name}:button`)
 
       return new builder.HeroCard(session)
         .title(`main:${item.name}:title`)

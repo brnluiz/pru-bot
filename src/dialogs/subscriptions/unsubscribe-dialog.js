@@ -3,13 +3,17 @@ const builder = require('botbuilder')
 const log = require('../../log')
 const userService = require('../../services/user-service')
 
+const locale = {}
 const isResponseYes = results =>
-  (results.response && results.response.entity === 'yes')
+  (results.response && results.response.entity === locale.confirmYes)
 
 module.exports = [
-  (session) => {
+  (session, results, next) => {
+    locale.confirmYes = session.localizer.gettext('pt', 'confirm-yes')
+    locale.confirmNo = session.localizer.gettext('pt', 'confirm-no')
+
     builder.Prompts.choice(session, 'subscriptions:unsubscribe-prompt',
-      'yes|no', {
+      [locale.confirmYes, locale.confirmNo], {
         maxRetries: 0,
         promptAfterAction: false
       })

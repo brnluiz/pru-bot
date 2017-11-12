@@ -36,3 +36,29 @@ curl -X POST -H "Content-Type: application/json" -d '{
   ]
 }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$pagetoken"
 
+curl -X DELETE -H "Content-Type: application/json" -d '{
+  "setting_type":"call_to_actions",
+  "thread_state":"new_thread"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$pagetoken"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "call_to_actions",
+  "thread_state" : "new_thread",
+  "call_to_actions":[
+    {
+      "payload":"action?GreetingsAction"
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$pagetoken"
+
+curl -X DELETE -H "Content-Type: application/json" -d '{
+  "setting_type":"greeting"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$pagetoken"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "greeting",
+  "greeting": {
+  "text":"Olá {{user_first_name}}! Estou aqui para lhe dar informações e notificações dos cardápios do RU-UFSC (por @brunoluiz)"
+  }
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$pagetoken"
+

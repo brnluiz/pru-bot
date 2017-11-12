@@ -48,4 +48,6 @@ bot.on('conversationUpdate', message => {
   return (isBot ? null : bot.beginDialog(message.address, '/greetings'))
 })
 
+bot.endConversationAction('/delete', 'Goodbye :)', { matches: /^astalavista/i })
+
 module.exports = () => ({ connector, bot })

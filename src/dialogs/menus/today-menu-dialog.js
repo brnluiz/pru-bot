@@ -11,6 +11,7 @@ module.exports = [
 
       if (!menu) {
         session.send('menus:notavailable')
+        return next()
       }
 
       const payload = { data: menu.id }

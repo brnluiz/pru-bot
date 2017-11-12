@@ -14,8 +14,8 @@ module.exports = [
 
     builder.Prompts.choice(session, 'greetings:subscription:dialog',
       [locale.confirmYes, locale.confirmNo], {
-        maxRetries: 0,
-        promptAfterAction: false
+        maxRetries: 3,
+        retryPrompt: 'greetings:subscription:retry'
       })
   },
   (session, results, next) => {

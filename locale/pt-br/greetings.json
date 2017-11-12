@@ -2,6 +2,7 @@
   "purpose": "Posso lhe informar os cardápios e notificar diariamente qual será o cardápio do RU",
   "firstmenu": "Por exemplo, o cardápio de hoje é...",
   "subscription:dialog": "Você deseja receber notificações como essa todos dias?",
+  "subscription:retry": "PRUUU! Não entendi o que você quis dizer... Poderia tentar novamente?",
   "subscription:subscribed": "PRUUU! Te notificarei pelas 10-11h todos dias!",
   "subscription:not-subscribed": "Ok! Sem problemas!",
   "subscribe:error": "PRUUU! Algum erro ocorreu na hora de registrar seu alerta...",

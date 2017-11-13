@@ -38,15 +38,15 @@ bot.dialog('/', (session) => {
   session.replaceDialog('/main')
 })
 
-// Shows a greeting message for new users
-bot.on('conversationUpdate', message => {
-  if (!message.membersAdded) return null
-
-  const isBot = message.membersAdded
-    .every(member => member.id === message.address.bot.id)
-
-  return (isBot ? null : bot.beginDialog(message.address, '/greetings'))
-})
+// // Shows a greeting message for new users
+// bot.on('conversationUpdate', message => {
+//   if (!message.membersAdded) return null
+//
+//   const isBot = message.membersAdded
+//     .every(member => member.id === message.address.bot.id)
+//
+//   return (isBot ? null : bot.beginDialog(message.address, '/greetings'))
+// })
 
 bot.endConversationAction('/delete', 'Goodbye :)', { matches: /^astalavista/i })
 
